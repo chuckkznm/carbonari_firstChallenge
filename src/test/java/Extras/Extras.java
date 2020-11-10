@@ -12,14 +12,15 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class Extras {
     String e = System.setProperty("webdriver.chrome.driver", "src/test/resources/browserBinaries/chromedriver.exe");
-    WebDriver driver = new ChromeDriver();
-    WebDriverWait wait = new WebDriverWait(driver, 10);
-
+    WebDriver driver;
+    WebDriverWait wait;
 
     /* BACKGROUND */
 
     @Given("me encuentro en el Main de RESTool App")
     public void validateMainView() {
+        driver = new ChromeDriver();
+        wait = new WebDriverWait(driver, 10);
         driver.get("https://dsternlicht.github.io/RESTool/#/characters?search=");
         driver.manage().window().maximize();
         String title = driver.findElement(By.xpath("//h2")).getText();
@@ -72,6 +73,11 @@ public class Extras {
         }
 
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//td//following::span[contains(text(), '"+arg+"')]")));
+    }
+
+    @And("Cierro el navegador en Extras")
+    public void closeBrowser(){
+        driver.quit();
     }
 
     /* UPDATE ITEM */

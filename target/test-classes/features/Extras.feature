@@ -10,6 +10,7 @@ Feature: Happy paths Extras
     And Ingreso "<nombre_extra>" en el campo name en Extras y doy Enter
     Then compruebo la alerta con el texto Great Success! en Extras
     And Visualizo "<nombre_extra>" en la tabla de Extras
+    And Cierro el navegador en Extras
 
     Examples:
        | nombre_extra  |
@@ -23,6 +24,7 @@ Feature: Happy paths Extras
     And Ingreso "<nombre_extra_editable>" en el campo name en Extras y doy Enter
     Then compruebo la alerta con el texto Great Success! en Extras
     And Visualizo "<nombre_extra_editable>" en la tabla de Extras
+    And Cierro el navegador en Extras
 
     Examples:
        | nombre_extra          |  nombre_extra_editable      |
@@ -35,6 +37,7 @@ Feature: Happy paths Extras
     When busco mi "<nombre_extra_editable>" y doy click en el botón de Delete Item
     And doy click en el botón Aceptar
     And Compruebo la inexistencia de "<nombre_extra_editable>" en la tabla de Extras
+    And Cierro el navegador en Extras
 
     Examples:
       | nombre_extra_editable |

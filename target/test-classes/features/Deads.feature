@@ -12,6 +12,7 @@ Feature: Happy paths Deads
     And doy click en el botón submit en Deads
     Then compruebo la alerta con el texto Great Success! en Deads
     And Visualizo "<nombre_dead>" en la tabla de Deads
+    And Cierro el navegador en Deads
 
     Examples:
     | nombre_dead |  reason_dead                               |
@@ -26,6 +27,7 @@ Feature: Happy paths Deads
     And doy click en el botón submit en Deads
     Then compruebo la alerta con el texto Great Success! en Deads
     And Visualizo "<nuevo_nombre_dead>" en la tabla de Deads
+    And Cierro el navegador en Deads
 
     Examples:
       | nuevo_nombre_dead     | reason_editable         |
@@ -38,6 +40,7 @@ Feature: Happy paths Deads
     When busco mi "<nuevo_nombre_dead>" y doy click en el botón de Delete Item en Deads
     And Doy click en el Alert Aceptar en Deads
     And Visualizo la inexistencia de "<nuevo_nombre_dead>" en la tabla de Deads
+    And Cierro el navegador en Deads
 
     Examples:
       | nuevo_nombre_dead     |

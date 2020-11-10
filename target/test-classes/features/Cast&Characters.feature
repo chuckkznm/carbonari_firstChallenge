@@ -4,6 +4,7 @@ Feature: Happy paths Cast&Characters
     Given me encuentro en la pantalla principal de RESTool App en C&C
     Then compruebo que me encuentro en C&C
 
+
   Scenario Outline: Alta de C&C
     When doy click en el botón ADD ITEM en C&C
     Then valido que abra el modal en C&C
@@ -13,6 +14,7 @@ Feature: Happy paths Cast&Characters
     And Doy click en el botón Submit de C&C
     Then Compruebo la alerta con el texto Great Success! en C&C
     And Visualizo "<name>" en la tabla de C&C
+    And Cierro el navegador en C&C
 
     Examples:
       | name            | real_name             | location            |
@@ -27,6 +29,7 @@ Feature: Happy paths Cast&Characters
     And Doy click en el botón Submit de C&C
     Then Compruebo la alerta con el texto Great Success! en C&C
     And Visualizo "<name>" en la tabla de C&C
+    And Cierro el navegador en C&C
 
     Examples:
       | number_test        | new_location     | name  |
@@ -38,6 +41,7 @@ Feature: Happy paths Cast&Characters
     When Busco el item "<item_a_eliminar>" y doy click en el botón de Delete Item en C&C
     And Doy click en el Alert Aceptar en C&C
     And Visualizo la inexistencia de "<item_a_eliminar>" en la tabla de C&C
+    And Cierro el navegador en C&C
 
     Examples:
     | item_a_eliminar |

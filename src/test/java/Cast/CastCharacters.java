@@ -15,13 +15,14 @@ public class CastCharacters {
     private String name;
 
     String e = System.setProperty("webdriver.chrome.driver", "src/test/resources/browserBinaries/chromedriver.exe");
-    WebDriver driver = new ChromeDriver();
-    WebDriverWait wait = new WebDriverWait(driver, 10);
-
+    WebDriver driver;
+    WebDriverWait wait;
     /* BACKGROUND */
 
     @Given("me encuentro en la pantalla principal de RESTool App en C&C")
     public void openBrowser() {
+        driver = new ChromeDriver();
+        wait = new WebDriverWait(driver, 10);
         driver.get("https://dsternlicht.github.io/RESTool/#/characters?search=");
         driver.manage().window().maximize();
 
@@ -75,6 +76,11 @@ public class CastCharacters {
     public void validateUserInTable(String arg){
         driver.findElement(By.xpath("//label[contains(text(), 'Search')]//following::input[@value='']")).sendKeys(arg, Keys.ENTER);
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//span[contains(text(), '"+arg+"')]")));
+    }
+
+    @And("Cierro el navegador en C&C")
+    public void closeBrowser(){
+        driver.quit();
     }
 
     /* EDIT ITEM */

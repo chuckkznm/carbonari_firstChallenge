@@ -12,6 +12,7 @@ Feature: Happy paths Employee
     And Doy click en el botón submit
     Then Compruebo la alerta con el texto Great Success!
     And Visualizo "<nombre_employee>" en la tabla de employees
+    And Cierro el navegador en Employees
 
     Examples:
       | nombre_employee | option                |
@@ -26,6 +27,7 @@ Feature: Happy paths Employee
       And Doy click en el botón submit
       Then Compruebo la alerta con el texto Great Success!
       And Visualizo "<nuevo_nombre_employee>" en la tabla de employees
+      And Cierro el navegador en Employees
 
       Examples:
         | nuevo_nombre_employee | option_editable         |
@@ -37,6 +39,7 @@ Feature: Happy paths Employee
     When Busco mi "<nuevo_nombre_employee>" y doy click en el botón de Delete Item
     And Doy click en el Alert Aceptar
     And Visualizo la inexistencia de "<nuevo_nombre_employee>" en la tabla de employees
+    And Cierro el navegador en Employees
 
     Examples:
 
