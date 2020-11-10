@@ -10,7 +10,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 
-public class Alta {
+public class Employees {
 
     String e = System.setProperty("webdriver.chrome.driver", "src/test/resources/browserBinaries/chromedriver.exe");
     WebDriver driver = new ChromeDriver();
@@ -75,7 +75,8 @@ public class Alta {
 
     @When("Busco mi {string} y doy click en el botón de Update Item")
     public void clickOnUpdateItem(String arg){
-        driver.findElement(By.xpath("//label[contains(text(), 'Search')]//following::input[@value='']")).sendKeys(arg, Keys.ENTER);
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//section[@class='query-params-form']")));
+        driver.findElement(By.xpath("//label[contains(text(), 'Search')]//following::input")).sendKeys(arg, Keys.ENTER);
         wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//div[contains(@class, 'actions-wrapper')]//button[@title='Edit']")));
         driver.findElement(By.xpath("//div[contains(@class, 'actions-wrapper')]//button[@title='Edit']")).click();
         ////button[contains(@title, 'Edit')]
@@ -92,6 +93,7 @@ public class Alta {
 
     @When("Busco mi {string} y doy click en el botón de Delete Item")
     public void clickOnDeleteItem(String arg){
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//section[@class='query-params-form']")));
         driver.findElement(By.xpath("//label[contains(text(), 'Search')]//following::input[@value='']")).sendKeys(arg, Keys.ENTER);
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//table[@class='pure-table']")));
         driver.findElement(By.xpath("//div[contains(@class, 'actions-wrapper')]//button[@title='Delete']")).click();
@@ -107,7 +109,10 @@ public class Alta {
 
     @And("Visualizo la inexistencia de {string} en la tabla de employees")
     public void visualizeDeleteItem(String arg){
-        driver.findElement(By.xpath("//label[contains(text(), 'Search')]//following::input[@value='']")).sendKeys(arg, Keys.ENTER);
+        driver.navigate().back();
+        driver.navigate().refresh();
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//section[@class='query-params-form']")));
+        driver.findElement(By.xpath("//label[contains(text(), 'Search')]//following::input")).sendKeys(arg, Keys.ENTER);
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//div[contains(text(), 'Nothing to see here. Result is empty.')]")));
     }
 

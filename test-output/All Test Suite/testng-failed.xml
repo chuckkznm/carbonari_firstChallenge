@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite guice-stage="DEVELOPMENT" name="Failed suite [All Test Suite]">
+  <test thread-count="5" name="C:/Users/Carbonari/Desktop/darkbot/MyProject/src/test/java/org/example(failed)">
+    <classes>
+      <class name="org.example.AppTest">
+        <methods>
+          <include name="sendKeysCustomer"/>
+          <include name="setUp"/>
+          <include name="unSetUp"/>
+        </methods>
+      </class> <!-- org.example.AppTest -->
+    </classes>
+  </test> <!-- C:/Users/Carbonari/Desktop/darkbot/MyProject/src/test/java/org/example(failed) -->
+</suite> <!-- Failed suite [All Test Suite] -->

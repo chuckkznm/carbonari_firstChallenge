@@ -16,7 +16,7 @@ Feature: Happy paths Cast&Characters
 
     Examples:
       | name            | real_name             | location            |
-     # | user1           | probando1             | Beyond the Wall     |
+      | user1           | probando1             | Beyond the Wall     |
      # | user2           | probando2             | Kings Landing       |
      # | user3           | probando3             | Winterfell          |
 

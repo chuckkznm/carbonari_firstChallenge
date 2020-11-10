@@ -82,7 +82,7 @@ public class CastCharacters {
     @When("busco mi nuevo item y doy click en el botón de Update Item en C&C")
     public void clickOnUpdateItem(){
         //driver.findElement(By.xpath("//label[contains(text(), 'Search')]//following::input[@value='']")).sendKeys(name, Keys.ENTER);
-        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//table[@class='pure-table']")));
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//main[@class='app-page-content']")));
         driver.findElement(By.xpath("//div[@class='actions-wrapper']//button[@Title='Edit']")).click();
     }
 
